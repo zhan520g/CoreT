@@ -27,8 +27,6 @@
 <# var manager = new Manager(Host, GenerationEnvironment, true) { OutputPath = OutputPath1 }; #>
 
 
-
-
 //--------------------------------------------------------------------
 //     此代码由T4模板自动生成
 //	   生成时间 <#=DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")#> 
@@ -51,7 +49,6 @@ namespace CoreT.IServices
 	/// </summary>	
 	public interface I<#=tableName#>Services :IBaseServices<<#=tableName#>>
     {
-
        
     }
 }
@@ -85,37 +82,11 @@ namespace CoreT.IServices
 	/// </summary>	
     public interface I<#=row["TABLE_NAME"].ToString()#>Services :IBaseServices<<#=row["TABLE_NAME"].ToString()#>>
 	{
-
        
     }
 }
 
 	//----------<#=row["TABLE_NAME"].ToString()#>结束----------
-	<# 
-		manager.EndBlock(); 
-		} 
-
-		{  
-		manager.StartBlock("IBaseServices.cs");//文件名
-	 #>
-    
-	//----------开始----------
-	
-using System;
-using CoreT.Entity;
-namespace CoreT.IServices
-{	
-	/// <summary>
-	/// IBaseRepository
-	/// </summary>	
-	public interface IBaseServices<TEntity> where TEntity : class
-    {
-
-       
-    }
-}
-
-	//----------结束----------
 	<# 
 		manager.EndBlock(); 
 		} 

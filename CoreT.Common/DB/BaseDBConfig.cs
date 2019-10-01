@@ -45,7 +45,7 @@ namespace CoreT.Common.DB
             }
             else
             {
-                return "server=.;uid=sa;pwd=sa;database=WMBlogDB";
+                return "Server=.;Database=BaseDB;User ID=sa;Password=123456;Connect Timeout=30;";
             }
 
         }

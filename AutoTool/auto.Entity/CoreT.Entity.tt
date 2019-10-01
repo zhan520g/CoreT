@@ -87,7 +87,7 @@ namespace CoreT.Entity
 	public class <#=row["TABLE_NAME"].ToString()#>//可以在这里加上基类等
 	{
 	//将该表下的字段都遍历出来，可以自定义获取数据描述等信息
-<# foreach(DbColumn column in DbHelper.GetDbColumns(config.ConnectionString, config.DbDatabase, row["TABLE_NAME"].ToString() )){ #>
+    <# foreach(DbColumn column in DbHelper.GetDbColumns(config.ConnectionString, config.DbDatabase, row["TABLE_NAME"].ToString() )){ #>
 
 	  public <#= column.CSharpType#> <# if(column.CommonType.IsValueType && column.IsNullable){#> ?<#}#> <#=column.ColumnName #> { get; set; }
 <#}#> 

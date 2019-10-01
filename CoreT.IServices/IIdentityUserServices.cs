@@ -13,7 +13,6 @@ namespace CoreT.IServices
     public interface IIdentityUserServices :IBaseServices<IdentityUser>
 	{
 
-       
     }
 }
 

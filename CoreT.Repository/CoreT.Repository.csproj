@@ -4,6 +4,19 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MiniProfiler.Shared" Version="4.1.0" />
+    <PackageReference Include="sqlSugarCore" Version="5.0.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CoreT.Common\CoreT.Common.csproj" />
+  </ItemGroup>
+
   <ItemGroup>
     <Reference Include="CoreT.Entity">
       <HintPath>..\CoreT.Entity\bin\Debug\netcoreapp3.0\CoreT.Entity.dll</HintPath>

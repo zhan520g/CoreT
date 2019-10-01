@@ -12,7 +12,7 @@ namespace CoreT.IRepository
 	public interface IIdentityUserRepository : IBaseRepository<IdentityUser>//类名
     {
     }
-}
+       }
 
 	//----------IdentityUser结束----------
 	

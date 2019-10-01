@@ -14,14 +14,12 @@ namespace CoreT.Services
 	/// </summary>	
 	public class IdentityUserServices : BaseServices<IdentityUser>, IIdentityUserServices
     {
-	
         IIdentityUserRepository dal;
         public IdentityUserServices(IIdentityUserRepository dal)
         {
             this.dal = dal;
-            base.baseDal = dal;
+            base.BaseDal = dal;
         }
-       
     }
 }
 

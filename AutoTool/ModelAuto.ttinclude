@@ -64,6 +64,7 @@ class Manager
         foreach(Block block in blocks) {//遍历
 			//输出文件
             String fileName = Path.Combine(OutputPath, block.Name);
+			if (File.Exists(fileName)) continue;
             if (split) {
                 String content = header + template.ToString(block.Start, block.Length) + footer;
                 strategy.CreateFile(fileName, content);
