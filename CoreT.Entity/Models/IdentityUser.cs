@@ -2,7 +2,7 @@
 	//----------IdentityUser开始----------
     
 using System;
-namespace Blog.Core.FrameWork.Entity
+namespace CoreT.FrameWork.Entity
 {	
 	/// <summary>
 	/// IdentityUser

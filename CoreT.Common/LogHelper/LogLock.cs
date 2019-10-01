@@ -1,13 +1,13 @@
 ﻿using CoreT.Common.Helper;
 using Blog.Core.Hubs;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using Blog.Core;
 
 namespace CoreT.Common.LogHelper
 {

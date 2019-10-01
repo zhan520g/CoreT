@@ -16,7 +16,7 @@
 
 <# 
     var solutionsPath = Host.ResolveAssemblyReference("$(SolutionDir)"); 
-    var OutputPath1 = solutionsPath+"\\CoreT.Entity\\CoreT.Services";
+    var OutputPath1 = solutionsPath+"\\CoreT.IRepository";
 	if (!Directory.Exists(OutputPath1))
 	{
 	    Directory.CreateDirectory(OutputPath1);
@@ -38,8 +38,8 @@
 if(tableName!=""){
     #>  
 using System;
-using Blog.Core.FrameWork.Entity;
-namespace Blog.Core.FrameWork.IRepository
+using CoreT.FrameWork.Entity;
+namespace CoreT.FrameWork.IRepository
 {	
 	/// <summary>
 	/// I<#=tableName#>Repository
@@ -71,8 +71,8 @@ namespace Blog.Core.FrameWork.IRepository
     
 	
 using System;
-using Blog.Core.FrameWork.Entity;
-namespace Blog.Core.FrameWork.IRepository
+using CoreT.FrameWork.Entity;
+namespace CoreT.FrameWork.IRepository
 {	
 	/// <summary>
 	/// I<#=row["TABLE_NAME"].ToString()#>Repository
@@ -96,8 +96,8 @@ namespace Blog.Core.FrameWork.IRepository
 	//----------开始----------
 	
 using System;
-using Blog.Core.FrameWork.Entity;
-namespace Blog.Core.FrameWork.IRepository
+using CoreT.FrameWork.Entity;
+namespace CoreT.FrameWork.IRepository
 {	
 	/// <summary>
 	/// IBaseRepository

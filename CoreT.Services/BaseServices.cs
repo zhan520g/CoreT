@@ -3,10 +3,10 @@
 	//----------开始----------
 	
 using System;
-using Blog.Core.FrameWork.Entity;
-using Blog.Core.FrameWork.IServices;
-using Blog.Core.FrameWork.IRepository;
-namespace Blog.Core.FrameWork.Services
+using CoreT.FrameWork.Entity;
+using CoreT.FrameWork.IServices;
+using CoreT.FrameWork.IRepository;
+namespace CoreT.FrameWork.Services
 {	
 	/// <summary>
 	/// IBaseRepository

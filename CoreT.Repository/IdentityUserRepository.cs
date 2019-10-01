@@ -3,10 +3,10 @@
     
 
 using System;
-using Blog.Core.FrameWork.IRepository;
-using Blog.Core.FrameWork.Entity;
+using CoreT.FrameWork.IRepository;
+using CoreT.FrameWork.Entity;
 
-namespace Blog.Core.FrameWork.Repository
+namespace CoreT.FrameWork.Repository
 {	
 	/// <summary>
 	/// IdentityUserRepository

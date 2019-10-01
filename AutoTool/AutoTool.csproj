@@ -8,6 +8,12 @@
     <Compile Include="..\CoreT.Entity\CoreT.Services\IBaseRepository.cs" Link="auto.IRepository\IBaseRepository.cs" />
     <Compile Include="..\CoreT.Entity\CoreT.Services\IIdentityUserRepository.cs" Link="auto.IRepository\IIdentityUserRepository.cs" />
     <Compile Include="..\CoreT.Entity\Models\IdentityUser.cs" Link="auto.Entity\IdentityUser.cs" />
+    <Compile Include="..\CoreT.Iservices\IBaseServices.cs" Link="auto.IServices\IBaseServices.cs" />
+    <Compile Include="..\CoreT.Iservices\IIdentityUserServices.cs" Link="auto.IServices\IIdentityUserServices.cs" />
+    <Compile Include="..\CoreT.Repository\BaseRepository.cs" Link="auto.Repository\BaseRepository.cs" />
+    <Compile Include="..\CoreT.Repository\IdentityUserRepository.cs" Link="auto.Repository\IdentityUserRepository.cs" />
+    <Compile Include="..\CoreT.Services\BaseServices.cs" Link="auto.Services\BaseServices.cs" />
+    <Compile Include="..\CoreT.Services\IdentityUserServices.cs" Link="auto.Services\IdentityUserServices.cs" />
   </ItemGroup>
 
   <ItemGroup>

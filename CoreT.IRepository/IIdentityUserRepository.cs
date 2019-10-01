@@ -3,8 +3,8 @@
     
 	
 using System;
-using Blog.Core.FrameWork.Entity;
-namespace Blog.Core.FrameWork.IRepository
+using CoreT.FrameWork.Entity;
+namespace CoreT.FrameWork.IRepository
 {	
 	/// <summary>
 	/// IIdentityUserRepository

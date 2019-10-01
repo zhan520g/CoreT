@@ -3,11 +3,11 @@
     
 
 using System;
-using Blog.Core.FrameWork.IServices;
-using Blog.Core.FrameWork.IRepository;
-using Blog.Core.FrameWork.Entity;
+using CoreT.FrameWork.IServices;
+using CoreT.FrameWork.IRepository;
+using CoreT.FrameWork.Entity;
 
-namespace Blog.Core.FrameWork.Services
+namespace CoreT.FrameWork.Services
 {	
 	/// <summary>
 	/// IdentityUserServices

@@ -3,9 +3,9 @@
     
 
 using System;
-using Blog.Core.FrameWork.Entity;
+using CoreT.FrameWork.Entity;
 
-namespace Blog.Core.FrameWork.IServices
+namespace CoreT.FrameWork.IServices
 {	
 	/// <summary>
 	/// IdentityUserServices

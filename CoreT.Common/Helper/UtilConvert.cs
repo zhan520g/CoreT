@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-namespace Blog.Core
+namespace CoreT.Common
 {
     /// <summary>
     /// 
