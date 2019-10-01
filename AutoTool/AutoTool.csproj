@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\CoreT.Entity\CoreT.Services\IBaseRepository.cs" Link="auto.IRepository\IBaseRepository.cs" />
+    <Compile Include="..\CoreT.Entity\CoreT.Services\IIdentityUserRepository.cs" Link="auto.IRepository\IIdentityUserRepository.cs" />
+    <Compile Include="..\CoreT.Entity\Models\IdentityUser.cs" Link="auto.Entity\IdentityUser.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="auto.Entity\CoreT.FrameWork.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CoreT.FrameWork.cs</LastGenOutput>
+    </None>
+    <None Update="auto.IRepository\CoreT.FrameWork.IRepository.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CoreT.FrameWork.IRepository.cs</LastGenOutput>
+    </None>
+    <None Update="auto.IServices\CoreT.FrameWork.IServices.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CoreT.FrameWork.IServices.cs</LastGenOutput>
+    </None>
+    <None Update="auto.Repository\CoreT.FrameWork.Repository.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CoreT.FrameWork.Repository.cs</LastGenOutput>
+    </None>
+    <None Update="auto.Services\CoreT.FrameWork.Services.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CoreT.FrameWork.Services.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="auto.Entity\CoreT.FrameWork.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CoreT.FrameWork.tt</DependentUpon>
+    </Compile>
+    <Compile Update="auto.IRepository\CoreT.FrameWork.IRepository.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CoreT.FrameWork.IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Update="auto.IServices\CoreT.FrameWork.IServices.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CoreT.FrameWork.IServices.tt</DependentUpon>
+    </Compile>
+    <Compile Update="auto.Repository\CoreT.FrameWork.Repository.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CoreT.FrameWork.Repository.tt</DependentUpon>
+    </Compile>
+    <Compile Update="auto.Services\CoreT.FrameWork.Services.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CoreT.FrameWork.Services.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>
