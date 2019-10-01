@@ -2,7 +2,7 @@
 	//----------IdentityUser开始----------
     
 using System;
-namespace CoreT.FrameWork.Entity
+namespace CoreT.Entity
 {	
 	/// <summary>
 	/// IdentityUser

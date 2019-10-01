@@ -43,7 +43,7 @@
 if(tableName!=""){//如果表名有值，表示是生成单一文件
     #>  
 using System;
-namespace CoreT.FrameWork.Entity
+namespace CoreT.Entity
 {	
 	/// <summary>
 	/// <#=tableName#>
@@ -79,7 +79,7 @@ namespace CoreT.FrameWork.Entity
 	//----------<#=row["TABLE_NAME"].ToString()#>开始----------
     
 using System;
-namespace CoreT.FrameWork.Entity
+namespace CoreT.Entity
 {	
 	/// <summary>
 	/// <#=row["TABLE_NAME"].ToString()#>

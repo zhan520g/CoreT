@@ -3,9 +3,9 @@
     
 
 using System;
-using CoreT.FrameWork.Entity;
+using CoreT.Entity;
 
-namespace CoreT.FrameWork.IServices
+namespace CoreT.IServices
 {	
 	/// <summary>
 	/// IdentityUserServices

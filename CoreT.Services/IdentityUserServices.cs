@@ -3,11 +3,11 @@
     
 
 using System;
-using CoreT.FrameWork.IServices;
-using CoreT.FrameWork.IRepository;
-using CoreT.FrameWork.Entity;
+using CoreT.IServices;
+using CoreT.IRepository;
+using CoreT.Entity;
 
-namespace CoreT.FrameWork.Services
+namespace CoreT.Services
 {	
 	/// <summary>
 	/// IdentityUserServices

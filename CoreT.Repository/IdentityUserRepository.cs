@@ -3,10 +3,10 @@
     
 
 using System;
-using CoreT.FrameWork.IRepository;
-using CoreT.FrameWork.Entity;
+using CoreT.IRepository;
+using CoreT.Entity;
 
-namespace CoreT.FrameWork.Repository
+namespace CoreT.Repository
 {	
 	/// <summary>
 	/// IdentityUserRepository

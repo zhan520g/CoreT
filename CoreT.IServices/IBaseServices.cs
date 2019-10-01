@@ -3,8 +3,8 @@
 	//----------开始----------
 	
 using System;
-using CoreT.FrameWork.Entity;
-namespace CoreT.FrameWork.IServices
+using CoreT.Entity;
+namespace CoreT.IServices
 {	
 	/// <summary>
 	/// IBaseRepository

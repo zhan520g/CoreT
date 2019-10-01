@@ -12,19 +12,19 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.IO" #>
 <#@ include file="$(ProjectDir)DbHelper.ttinclude"  #>
-
 <#@ include file="$(ProjectDir)ModelAuto.ttinclude"	#>
-
 
 <# 
     var solutionsPath = Host.ResolveAssemblyReference("$(SolutionDir)"); 
-    var OutputPath1 = solutionsPath+"\\CoreT.Services";
+    var OutputPath1 = solutionsPath+"\\CoreT.IRepository";
 	if (!Directory.Exists(OutputPath1))
 	{
 	    Directory.CreateDirectory(OutputPath1);
 	}
 	#> 
 <# var manager = new Manager(Host, GenerationEnvironment, true) { OutputPath = OutputPath1 }; #>
+
+
 
 //--------------------------------------------------------------------
 //     此代码由T4模板自动生成
@@ -37,27 +37,15 @@
 <# 
 if(tableName!=""){
     #>  
-
-
 using System;
-using CoreT.FrameWork.IServices;
-using CoreT.FrameWork.IRepository;
-using CoreT.FrameWork.Entity;
-namespace CoreT.FrameWork.Services
+using CoreT.Entity;
+namespace CoreT.IRepository
 {	
 	/// <summary>
-	/// <#=tableName#>Services
+	/// I<#=tableName#>Repository
 	/// </summary>	
-	public class <#=tableName#>Services : BaseServices<<#=tableName#>>, I<#=tableName#>Services
+	public interface I<#=tableName#>Repository : IBaseRepository<<#=tableName#>>
     {
-	
-        I<#=tableName#>Repository dal;
-        public <#=tableName#>Services(I<#=tableName#>Repository dal)
-        {
-            this.dal = dal;
-            base.baseDal = dal;
-        }
-       
     }
 }
 
@@ -75,31 +63,20 @@ namespace CoreT.FrameWork.Services
 <# 
     foreach(System.Data.DataRow row in schema.Rows) 
     {  
-		manager.StartBlock(row["TABLE_NAME"].ToString()+"Services"+".cs");
+		manager.StartBlock("I"+row["TABLE_NAME"].ToString()+"Repository"+".cs");//文件名
 	 #>
 	//----------<#=row["TABLE_NAME"].ToString()#>开始----------
     
-
+	
 using System;
-using CoreT.FrameWork.IServices;
-using CoreT.FrameWork.IRepository;
-using CoreT.FrameWork.Entity;
-
-namespace CoreT.FrameWork.Services
+using CoreT.Entity;
+namespace CoreT.IRepository
 {	
 	/// <summary>
-	/// <#=row["TABLE_NAME"].ToString()#>Services
+	/// I<#=row["TABLE_NAME"].ToString()#>Repository
 	/// </summary>	
-	public class <#=row["TABLE_NAME"].ToString()#>Services : BaseServices<<#=row["TABLE_NAME"].ToString()#>>, I<#=row["TABLE_NAME"].ToString() #>Services
+	public interface I<#=row["TABLE_NAME"].ToString()#>Repository : IBaseRepository<<#=row["TABLE_NAME"].ToString()#>>//类名
     {
-	
-        I<#=row["TABLE_NAME"].ToString() #>Repository dal;
-        public <#=row["TABLE_NAME"].ToString() #>Services(I<#=row["TABLE_NAME"].ToString() #>Repository dal)
-        {
-            this.dal = dal;
-            base.baseDal = dal;
-        }
-       
     }
 }
 
@@ -109,24 +86,20 @@ namespace CoreT.FrameWork.Services
 		} 
 
 		{  
-		manager.StartBlock("BaseServices.cs");//文件名
+		manager.StartBlock("IBaseRepository.cs");//文件名
 	 #>
     
 	//----------开始----------
 	
 using System;
-using CoreT.FrameWork.Entity;
-using CoreT.FrameWork.IServices;
-using CoreT.FrameWork.IRepository;
-namespace CoreT.FrameWork.Services
+using CoreT.Entity;
+namespace CoreT.IRepository
 {	
 	/// <summary>
 	/// IBaseRepository
 	/// </summary>	
-	public class BaseServices<TEntity> : IBaseServices<TEntity> where TEntity : class, new()
-    {
-		public IBaseRepository<TEntity> baseDal;
-       
+	public interface IBaseRepository<TEntity> where TEntity : class
+    {  
     }
 }
 
@@ -134,8 +107,11 @@ namespace CoreT.FrameWork.Services
 	<# 
 		manager.EndBlock(); 
 		} 
-
 		manager.Process(true);
 	}
 	#> 
+
+	
+
+
 

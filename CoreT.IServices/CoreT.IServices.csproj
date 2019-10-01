@@ -1,7 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="CoreT.Entity">
+      <HintPath>..\CoreT.Entity\bin\Debug\netcoreapp3.0\CoreT.Entity.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
 </Project>

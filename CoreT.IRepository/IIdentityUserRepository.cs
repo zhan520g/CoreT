@@ -3,16 +3,14 @@
     
 	
 using System;
-using CoreT.FrameWork.Entity;
-namespace CoreT.FrameWork.IRepository
+using CoreT.Entity;
+namespace CoreT.IRepository
 {	
 	/// <summary>
 	/// IIdentityUserRepository
 	/// </summary>	
 	public interface IIdentityUserRepository : IBaseRepository<IdentityUser>//类名
     {
-
-       
     }
 }
 

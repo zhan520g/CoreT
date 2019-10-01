@@ -3,9 +3,9 @@
 	//----------开始----------
 	
 using System;
-using CoreT.FrameWork.Entity;
-using CoreT.FrameWork.IRepository;
-namespace CoreT.FrameWork.Repository
+using CoreT.Entity;
+using CoreT.IRepository;
+namespace CoreT.Repository
 {	
 	/// <summary>
 	/// IBaseRepository

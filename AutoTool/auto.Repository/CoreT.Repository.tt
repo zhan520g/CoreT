@@ -17,8 +17,8 @@
 
 
 <# 
-    var solutionsPath = Host.ResolveAssemblyReference("$(SolutionDir)"); 
-    var OutputPath1 = solutionsPath+"\\CoreT.Iservices";
+  var solutionsPath = Host.ResolveAssemblyReference("$(SolutionDir)"); 
+    var OutputPath1 = solutionsPath+"\\CoreT.Repository";
 	if (!Directory.Exists(OutputPath1))
 	{
 	    Directory.CreateDirectory(OutputPath1);
@@ -43,16 +43,15 @@ if(tableName!=""){
 
 
 using System;
-using CoreT.FrameWork.Entity;
-namespace CoreT.FrameWork.IServices
+using CoreT.IRepository;
+using CoreT.Entity;
+namespace CoreT.Repository
 {	
 	/// <summary>
-	/// I<#=tableName#>Services
+	/// <#=tableName#>Repository
 	/// </summary>	
-	public interface I<#=tableName#>Services :IBaseServices<<#=tableName#>>
-    {
-
-       
+	public class <#=tableName#>Repository : BaseRepository<<#=tableName#>>, I<#=tableName#>Repository
+    {      
     }
 }
 
@@ -70,21 +69,22 @@ namespace CoreT.FrameWork.IServices
 <# 
     foreach(System.Data.DataRow row in schema.Rows) 
     {  
-		manager.StartBlock("I"+row["TABLE_NAME"].ToString()+"Services"+".cs");
+		manager.StartBlock(row["TABLE_NAME"].ToString()+"Repository"+".cs");
 	 #>
 	//----------<#=row["TABLE_NAME"].ToString()#>开始----------
     
 
 using System;
-using CoreT.FrameWork.Entity;
+using CoreT.IRepository;
+using CoreT.Entity;
 
-namespace CoreT.FrameWork.IServices
+namespace CoreT.Repository
 {	
 	/// <summary>
-	/// <#=row["TABLE_NAME"].ToString()#>Services
+	/// <#=row["TABLE_NAME"].ToString()#>Repository
 	/// </summary>	
-    public interface I<#=row["TABLE_NAME"].ToString()#>Services :IBaseServices<<#=row["TABLE_NAME"].ToString()#>>
-	{
+	public class <#=row["TABLE_NAME"].ToString()#>Repository : BaseRepository<<#=row["TABLE_NAME"].ToString()#>>, I<#=row["TABLE_NAME"].ToString() #>Repository
+    {
 
        
     }
@@ -96,19 +96,20 @@ namespace CoreT.FrameWork.IServices
 		} 
 
 		{  
-		manager.StartBlock("IBaseServices.cs");//文件名
+		manager.StartBlock("BaseRepository.cs");//文件名
 	 #>
     
 	//----------开始----------
 	
 using System;
-using CoreT.FrameWork.Entity;
-namespace CoreT.FrameWork.IServices
+using CoreT.Entity;
+using CoreT.IRepository;
+namespace CoreT.Repository
 {	
 	/// <summary>
 	/// IBaseRepository
 	/// </summary>	
-	public interface IBaseServices<TEntity> where TEntity : class
+	 public  class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class, new()
     {
 
        
@@ -119,6 +120,7 @@ namespace CoreT.FrameWork.IServices
 	<# 
 		manager.EndBlock(); 
 		} 
+
 
 		manager.Process(true);
 	}

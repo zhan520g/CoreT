@@ -4,4 +4,16 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="CoreT.Entity">
+      <HintPath>..\CoreT.Entity\bin\Debug\netcoreapp3.0\CoreT.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreT.IRepository">
+      <HintPath>..\CoreT.IRepository\bin\Debug\netcoreapp3.0\CoreT.IRepository.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreT.IServices">
+      <HintPath>..\CoreT.IServices\bin\Debug\netcoreapp3.0\CoreT.IServices.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
