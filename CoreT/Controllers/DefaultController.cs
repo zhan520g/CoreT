@@ -20,7 +20,6 @@ namespace CoreT.Controllers
             this.identityUserServices = identityUserServices;
         }
 
-
         public async Task<MessageModel<PageModel<IdentityUser>>> Index(int page = 1,string key = "")
         {
             if (string.IsNullOrEmpty(key) || string.IsNullOrWhiteSpace(key))

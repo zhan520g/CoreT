@@ -89,12 +89,12 @@ namespace CoreT.Repository
 
             _db.Aop.OnLogExecuting = (sql, pars) => //SQL执行中事件
             {
-                //Parallel.For(0, 1, e =>
-                //{
-                //    MiniProfiler.Current.CustomTiming("SQL：", GetParas(pars) + "【SQL语句】：" + sql);
-                //    LogLock.OutSql2Log("SqlLog", new string[] { GetParas(pars), "【SQL语句】：" + sql });
+                Parallel.For(0, 1, e =>
+                {
+                    MiniProfiler.Current.CustomTiming("SQL：", GetParas(pars) + "【SQL语句】：" + sql);
+                    LogLock.OutSql2Log("SqlLog", new string[] { GetParas(pars), "【SQL语句】：" + sql });
 
-                //});
+                });
             };
 
         }

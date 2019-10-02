@@ -2,7 +2,7 @@
 using CoreT.Common.LogHelper;
 using Microsoft.AspNetCore.SignalR;
 
-namespace Blog.Core.Hubs
+namespace CoreT.Common.Hubs
 {
     public class ChatHub : Hub
     {

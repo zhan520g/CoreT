@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Autofac.Extras.DynamicProxy;
+using CoreT.AOP;
+using CoreT.Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,29 +28,21 @@ namespace CoreT
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            #region 带有接口层的服务注入
-            string assemblies = Configuration["Assembly:dll"];
-            if (!string.IsNullOrEmpty(assemblies))
-            {
-                foreach (var item in assemblies.Split('|'))
-                {
-                    Assembly assembly = Assembly.Load(item);
-                    foreach (var implement in assembly.GetTypes())
-                    {
-                        if (implement.FullName.Contains("BaseRepository")||
-                            implement.FullName.Contains("BaseServices")) continue;
-
-                        Type[] interfaceType = implement.GetInterfaces();
-                        foreach (var service in interfaceType)
-                        {
-                            services.AddTransient(service, implement);
-                        }
-                    }
-                } 
-            }
-            #endregion
             services.AddControllers();
         }
+
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            //添加依赖注入关系
+            builder.RegisterModule(new AutofacModuleRegister(Configuration));
+            var controllerBaseType = typeof(ControllerBase);
+            //在控制器中使用依赖注入
+            builder.RegisterAssemblyTypes(typeof(Program).Assembly)
+                .Where(t => controllerBaseType.IsAssignableFrom(t) && t != controllerBaseType)
+                .PropertiesAutowired();
+        }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -56,6 +51,10 @@ namespace CoreT
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            #region MiniProfiler
+            app.UseMiniProfiler();
+            #endregion
 
             app.UseRouting();
 
