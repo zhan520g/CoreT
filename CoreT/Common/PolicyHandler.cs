@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using CoreT.IServices;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
@@ -33,14 +34,13 @@ namespace CoreT.Common
             _jwtApp = jwtApp;
         }
         /// <summary>
-        /// //授权处理 ,async 这个标识可以解决很多问题,.............探究一下
+        /// //授权处理 
         /// </summary>
         /// <param name="context"></param>
         /// <param name="requirement"></param>
         /// <returns></returns>
         protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, PolicyRequirement requirement)
         {
-
 
             //Todo：获取角色、Url 对应关系
             List<Menu> list = new List<Menu> {
@@ -61,30 +61,28 @@ namespace CoreT.Common
                 }
             };
 
-            var httpContext = (context.Resource as AuthorizationFilterContext).HttpContext;
-            var isAuthenticated = httpContext.User.Identity.IsAuthenticated;
+            var http = (context.Resource as Microsoft.AspNetCore.Routing.RouteEndpoint);
+            var isAuthenticated = context.User.Identity.IsAuthenticated;
 
             //获取授权方式
             var defaultAuthenticate = await Schemes.GetDefaultAuthenticateSchemeAsync();
             if (defaultAuthenticate != null)
             {
                 //验证签发的用户信息
-                var result = await httpContext.AuthenticateAsync(defaultAuthenticate.Name);
-                if (result.Succeeded)
+                if (context.User.Identity.IsAuthenticated)
                 {
                     //判断是否为已停用的 Token
-                    if (!await _jwtApp.IsCurrentActiveTokenAsync())
+                    if (await _jwtApp.IsCurrentActiveTokenAsync())
                     {
                         context.Fail();
                         return;
                     }
 
-                    httpContext.User = result.Principal;
-
                     //判断角色与 Url 是否对应
                     //
-                    var url = httpContext.Request.Path.Value.ToLower();
-                    var role = httpContext.User.Claims.Where(c => c.Type == ClaimTypes.Role).FirstOrDefault().Value;
+                    var url = http.RoutePattern.RequiredValues.GetValueOrDefault("controller") + "/" + http.RoutePattern.RequiredValues.GetValueOrDefault("action");
+
+                    var role = context.User.Claims.Where(c => c.Type == ClaimTypes.Role).FirstOrDefault().Value;
                     var menu = list.Where(x => x.Role.Equals(role) && x.Url.ToLower().Equals(url)).FirstOrDefault();
 
                     if (menu == null)
@@ -94,7 +92,7 @@ namespace CoreT.Common
                     }
 
                     //判断是否过期
-                    if (DateTime.Parse(httpContext.User.Claims.SingleOrDefault(s => s.Type == ClaimTypes.Expiration).Value) >= DateTime.UtcNow)
+                    if (DateTime.Parse(context.User.Claims.SingleOrDefault(s => s.Type == ClaimTypes.Expiration).Value) >= DateTime.UtcNow)
                     {
                         //允许此标记通过,并将挂起的状态删除
                         context.Succeed(requirement);

@@ -29,6 +29,7 @@ namespace CoreT.IServices
 
         Task<bool> Update(TEntity entity, List<string> lstColumns = null, List<string> lstIgnoreColumns = null, string strWhere = "");
 
+        Task<TEntity> QueryFirst(Expression<Func<TEntity, bool>> whereExpression);
         Task<List<TEntity>> Query();
         Task<List<TEntity>> Query(string strWhere);
         Task<List<TEntity>> Query(Expression<Func<TEntity, bool>> whereExpression);

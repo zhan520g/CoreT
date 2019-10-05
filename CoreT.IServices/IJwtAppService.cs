@@ -1,6 +1,9 @@
-﻿using System;
+﻿using CoreT.Entity;
+using CoreT.Entity.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CoreT.IServices
 {
@@ -11,7 +14,7 @@ namespace CoreT.IServices
         /// </summary>
         /// <param name="dto">用户信息数据传输对象</param>
         /// <returns></returns>
-        JwtAuthorizationDto Create(UserDto dto);
+        JwtAuthorizationDto Create(IdentityUser dto);
 
         /// <summary>
         /// 刷新 Token
@@ -19,7 +22,7 @@ namespace CoreT.IServices
         /// <param name="token">Token</param>
         /// <param name="dto">用户信息数据传输对象</param>
         /// <returns></returns>
-        Task<JwtAuthorizationDto> RefreshAsync(string token, UserDto dto);
+         Task<JwtAuthorizationDto> RefreshAsync(string token, IdentityUser dto);
 
         /// <summary>
         /// 判断当前 Token 是否有效
@@ -44,7 +47,7 @@ namespace CoreT.IServices
         /// 停用 Token
         /// </summary>
         /// <returns></returns>
-        Task DeactivateAsync(string token);
+        public Task DeactivateAsync(string token);
 
     }
 }

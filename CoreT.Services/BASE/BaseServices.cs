@@ -109,7 +109,17 @@ namespace CoreT.Services
             return await BaseDal.DeleteByIds(ids);
         }
 
-
+        /// <summary>
+        /// 功能描述:根据查询条件查询出单个对象
+        /// 作　　者:
+        /// </summary>
+        /// <param name="strWhere">条件</param>
+        /// <returns>数据列表</returns>
+        public async Task<TEntity> QueryFirst(Expression<Func<TEntity, bool>> whereExpressione)
+        {
+            //return await Task.Run(() => _db.Queryable<TEntity>().WhereIF(!string.IsNullOrEmpty(strWhere), strWhere).ToList());
+            return await BaseDal.QueryFirst(whereExpressione);
+        }
 
         /// <summary>
         /// 功能描述:查询所有数据

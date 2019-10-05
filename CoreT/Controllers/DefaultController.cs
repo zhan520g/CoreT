@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using CoreT.Entity;
 using CoreT.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreT.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize(Policy = "Permission")]
     public class DefaultController : ControllerBase
     {
         private IIdentityUserServices identityUserServices;
@@ -20,6 +22,7 @@ namespace CoreT.Controllers
             this.identityUserServices = identityUserServices;
         }
 
+        [HttpGet]
         public async Task<MessageModel<PageModel<IdentityUser>>> Index(int page = 1,string key = "")
         {
             if (string.IsNullOrEmpty(key) || string.IsNullOrWhiteSpace(key))

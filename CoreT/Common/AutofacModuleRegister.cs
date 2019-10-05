@@ -1,7 +1,9 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
 using CoreT.AOP;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.PlatformAbstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,9 +29,18 @@ namespace CoreT.Common
             #region Service.dll 注入，有对应接口
             try
             {
-                string servicesDllFile = Configuration["Assembly:Services"];
-                var assemblysServices = Assembly.Load(servicesDllFile);//直接采用加载文件的方法 
-                
+                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+                string servicesDllFile =basePath+Configuration["Assembly:Services"];
+                var assemblysServices = Assembly.LoadFrom(servicesDllFile);//直接采用加载文件的方法 
+
+                //foreach (var implement in assemblysServices.GetTypes())
+                //{
+                //    Type[] interfaceType = implement.GetInterfaces();
+                //    foreach (var service in interfaceType)
+                //    {
+                      
+                //    }
+                //}
                 // AOP 开关，如果想要打开指定的功能，只需要在 appsettigns.json 对应 true 就行。
                 var cacheType = new List<Type>();
                 if (Configuration["AppSettings:RedisCaching:Enabled"].ObjToBool())
@@ -56,8 +67,8 @@ namespace CoreT.Common
                 #endregion
 
             #region Repository.dll 注入，有对应接口
-                string repositoryDllFile = Configuration["Assembly:Repository"];
-                var assemblysRepository = Assembly.Load(repositoryDllFile);
+                string repositoryDllFile = basePath+Configuration["Assembly:Repository"];
+                var assemblysRepository = Assembly.LoadFrom(repositoryDllFile);
                 builder.RegisterAssemblyTypes(assemblysRepository).AsImplementedInterfaces();
                 #endregion
             }
@@ -65,8 +76,14 @@ namespace CoreT.Common
             {
                 throw new Exception(ex.Message + "\n" + ex.InnerException);
             }
+
             #endregion
+
+            //DI handler process function
+            builder.RegisterType<PolicyHandler>().As<IAuthorizationHandler>();
+            builder.RegisterType<Microsoft.AspNetCore.Http.HttpContextAccessor>().As<Microsoft.AspNetCore.Http.IHttpContextAccessor>();
             #endregion
+
         }
     }
 }

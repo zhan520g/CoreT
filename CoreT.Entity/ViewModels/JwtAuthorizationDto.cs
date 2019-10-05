@@ -6,10 +6,10 @@ namespace CoreT.Entity.ViewModels
 {
     public class JwtAuthorizationDto
     {
-        public object UserId { get; internal set; }
-        public string Token { get; internal set; }
-        public long Auths { get; internal set; }
-        public long Expires { get; internal set; }
-        public bool Success { get; internal set; }
+        public object UserId { get;  set; }
+        public string Token { get;  set; }
+        public long Auths { get;  set; }
+        public long Expires { get;  set; }
+        public bool Success { get;  set; }
     }
 }

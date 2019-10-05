@@ -234,6 +234,17 @@ namespace CoreT.Repository
         }
 
         /// <summary>
+        /// 功能描述:根据查询条件查询出单个对象
+        /// 作　　者:
+        /// </summary>
+        /// <param name="strWhere">条件</param>
+        /// <returns>数据列表</returns>
+        public async Task<TEntity> QueryFirst(Expression<Func<TEntity, bool>> whereExpression)
+        {
+            return await _db.Queryable<TEntity>().WhereIF(whereExpression!=null,whereExpression).FirstAsync();
+        }
+
+        /// <summary>
         /// 功能描述:查询数据列表
         /// 作　　者:
         /// </summary>

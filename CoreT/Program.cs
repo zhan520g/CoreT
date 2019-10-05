@@ -23,6 +23,6 @@ namespace CoreT
                 {
                     webBuilder.UseStartup<Startup>();
                 })
-            .UseServiceProviderFactory(new AutofacServiceProviderFactory());
+             .UseServiceProviderFactory(new AutofacServiceProviderFactory());
     }
 }
