@@ -72,34 +72,26 @@ namespace CoreT
                     }
                 };
             });
-           
+
             #endregion
 
             #region Swagger UI
             services.AddSwaggerGen(options =>
             {
-                string contactName = Configuration.GetSection("SwaggerDoc:ContactName").Value;
-                string contactNameEmail = Configuration.GetSection("SwaggerDoc:ContactEmail").Value;
-                string contactUrl = Configuration.GetSection("SwaggerDoc:ContactUrl").Value;
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = Configuration.GetSection("SwaggerDoc:Version").Value,
                     Title = Configuration.GetSection("SwaggerDoc:Title").Value,
                     Description = Configuration.GetSection("SwaggerDoc:Description").Value,
-                    Contact = new OpenApiContact { Name = contactName, Email = contactNameEmail, Url = new Uri(contactUrl) },
-                    License = new OpenApiLicense { Name = contactName, Url = new Uri(contactUrl) }
                 });
 
                 //Add comments description
-                var basePath = Path.GetDirectoryName(AppContext.BaseDirectory);//get application located directory
+                var basePath = Environment.CurrentDirectory;
                 var xmlPath = Path.Combine(basePath, "CoreT.xml");
                 options.IncludeXmlComments(xmlPath);
                 options.DocumentFilter<HiddenApiFilter>(); // 在接口类、方法标记属性 [HiddenApi]，可以阻止【Swagger文档】生成
-                options.OperationFilter<AddHeaderOperationFilter>("correlationId", "Correlation Id for the request", false); // adds any string you like to the request headers - in this case, a correlation id
-                options.OperationFilter<AddResponseHeadersFilter>();
-                options.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
 
-                options.OperationFilter<SecurityRequirementsOperationFilter>();
+                options.OperationFilter<SecurityRequirementsOperationFilter>(); //加锁
                 //给api添加token令牌证书
                 options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
                 {
@@ -109,7 +101,6 @@ namespace CoreT
                     Type = SecuritySchemeType.ApiKey
                 });
             });
-
             #endregion
 
             #region redis服务
@@ -120,7 +111,6 @@ namespace CoreT
             #endregion
             services.AddControllers();
         }
-
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
@@ -158,6 +148,7 @@ namespace CoreT
                 endpoints.MapControllers().RequireAuthorization(); ;
             });
 
+          
             //使用Swagger
             app.UseSwagger();
             app.UseSwaggerUI(s =>
@@ -172,7 +163,7 @@ namespace CoreT
             });
 
 
-
         }
+
     }
 }

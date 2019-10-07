@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CoreT</name>
+    </assembly>
+    <members>
+        <member name="T:CoreT.AOP.CacheAOP">
+            <summary>
+            面向切面的缓存使用
+            </summary>
+        </member>
+        <member name="M:CoreT.AOP.CacheAOPbase.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            AOP的拦截方法
+            </summary>
+            <param name="invocation"></param>
+        </member>
+        <member name="M:CoreT.AOP.CacheAOPbase.CustomCacheKey(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            自定义缓存的key
+            </summary>
+            <param name="invocation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CoreT.AOP.CacheAOPbase.GetArgumentValue(System.Object)">
+            <summary>
+            object 转 string
+            </summary>
+            <param name="arg"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreT.AOP.LogAOP">
+            <summary>
+            拦截器BlogLogAOP 继承IInterceptor接口
+            </summary>
+        </member>
+        <member name="M:CoreT.AOP.LogAOP.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            实例化IInterceptor唯一方法 
+            </summary>
+            <param name="invocation">包含被拦截方法的信息</param>
+        </member>
+        <member name="P:CoreT.Common.PolicyHandler.Schemes">
+            <summary>
+            授权方式（cookie, bearer, oauth, openid）
+            </summary>
+        </member>
+        <member name="F:CoreT.Common.PolicyHandler._jwtApp">
+            <summary>
+            jwt 服务
+            </summary>
+        </member>
+        <member name="M:CoreT.Common.PolicyHandler.#ctor(Microsoft.AspNetCore.Authentication.IAuthenticationSchemeProvider,CoreT.IServices.IJwtAppService)">
+            <summary>
+            ctor
+            </summary>
+            <param name="schemes"></param>
+            <param name="jwtApp"></param>
+        </member>
+        <member name="M:CoreT.Common.PolicyHandler.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,CoreT.Common.PolicyRequirement)">
+            <summary>
+            //授权处理 
+            </summary>
+            <param name="context"></param>
+            <param name="requirement"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CoreT.Common.PolicyHandler.Menu">
+            <summary>
+            测试菜单类
+            </summary>
+        </member>
+        <member name="T:CoreT.Common.PolicyRequirement">
+            <summary>
+            自定义授权策略 
+            </summary>
+        </member>
+        <member name="F:CoreT.Controllers.v1.SecretController._jwtApp">
+            <summary>
+            Jwt 服务
+            </summary>
+        </member>
+        <member name="F:CoreT.Controllers.v1.SecretController._userApp">
+            <summary>
+            用户服务
+            </summary>
+        </member>
+        <member name="P:CoreT.Controllers.v1.SecretController._configuration">
+            <summary>
+            配置信息
+            </summary>
+        </member>
+        <member name="M:CoreT.Controllers.v1.SecretController.#ctor(Microsoft.Extensions.Configuration.IConfiguration,CoreT.IServices.IJwtAppService,CoreT.IServices.IIdentityUserServices)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="configuration"></param>
+            <param name="jwtApp"></param>
+            <param name="userApp"></param>
+        </member>
+        <member name="M:CoreT.Controllers.v1.SecretController.CancelAccessToken">
+            <summary>
+            停用 Jwt 授权数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CoreT.Controllers.v1.SecretController.LoginAsync(CoreT.Entity.SecretDto)">
+            <summary>
+            获取 Jwt 授权数据
+            </summary>
+            <param name="dto">授权用户信息</param>
+        </member>
+        <member name="M:CoreT.Controllers.v1.SecretController.RefreshAccessTokenAsync(CoreT.Entity.SecretDto)">
+            <summary>
+            刷新 Jwt 授权数据
+            </summary>
+            <param name="dto">刷新授权用户信息</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

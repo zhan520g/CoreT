@@ -83,7 +83,7 @@ namespace CoreT.Services
             //将用户信息添加到 Claim 中,制作身份证
             var identity = new ClaimsIdentity(JwtBearerDefaults.AuthenticationScheme);
 
-            //添加用户信息
+            //自定义添加用户信息
             IEnumerable<Claim> claims = new Claim[] {
               new Claim(ClaimTypes.Name,dto.Name),
               new Claim(ClaimTypes.Role,dto.Salt.ToString()),

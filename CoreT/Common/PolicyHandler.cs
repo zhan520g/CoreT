@@ -41,7 +41,6 @@ namespace CoreT.Common
         /// <returns></returns>
         protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, PolicyRequirement requirement)
         {
-
             //Todo：获取角色、Url 对应关系
             List<Menu> list = new List<Menu> {
                 new Menu
@@ -75,7 +74,7 @@ namespace CoreT.Common
                     if (await _jwtApp.IsCurrentActiveTokenAsync())
                     {
                         context.Fail();
-                        return;
+                        return ;
                     }
 
                     //判断角色与 Url 是否对应
@@ -101,7 +100,7 @@ namespace CoreT.Common
                     {
                         context.Fail();
                     }
-                    return;
+                    return ;
                 }
             }
             context.Fail();

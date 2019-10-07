@@ -37,10 +37,9 @@ namespace CoreT.Controllers.v1
         /// <summary>
         /// Ctor
         /// </summary>
-        /// <param name="logger"></param>
         /// <param name="configuration"></param>
         /// <param name="jwtApp"></param>
-        /// <param name="secretApp"></param>
+        /// <param name="userApp"></param>
         public SecretController(IConfiguration configuration,
             IJwtAppService jwtApp, IIdentityUserServices userApp)
         {
