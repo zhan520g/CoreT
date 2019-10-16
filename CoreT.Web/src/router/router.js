@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import store from '../store/store' //引入状态管理
 import NProgress from 'nprogress' //引入进度条组件 cnpm install nprogress --save
 import 'nprogress/nprogress.css' 
-
 Vue.use(Router)
 
   /**
@@ -11,9 +10,15 @@ Vue.use(Router)
     *@parma {String} component 视图组件名称
     */
    const getComponent = (name,component) => () => import(`@/views/${name}/${component}.vue`);
+   const getComponentByName = name => () => import(`@/views/${name}.vue`);
+
 
 const myRouter=new Router({
   routes: [
+    {
+      path:'/page1',
+      component:getComponentByName('page1')
+    },
     {
       path: '/',
       redirect: '/home',

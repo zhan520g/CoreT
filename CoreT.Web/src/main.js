@@ -5,7 +5,7 @@ import store from './store/store'
 import i18n from './lang'
 import './plugins/element.js'
 import './directive/premissionBtn'
-import './assets/css/public.css'  
+import './assets/css/public.css'   //全局样式
 import './element-variables.scss'   
 
 //表单设计
