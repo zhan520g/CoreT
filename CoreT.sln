@@ -53,6 +53,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreT.Repository", "CoreT.R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreT.Common", "CoreT.Common\CoreT.Common.csproj", "{1B35EF8A-2478-4EA2-A370-F93A4D250221}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreT.Test", "CoreT.Test\CoreT.Test.csproj", "{28326AC2-C53E-46A6-A06C-D17F90A9C147}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +92,10 @@ Global
 		{1B35EF8A-2478-4EA2-A370-F93A4D250221}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B35EF8A-2478-4EA2-A370-F93A4D250221}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B35EF8A-2478-4EA2-A370-F93A4D250221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28326AC2-C53E-46A6-A06C-D17F90A9C147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28326AC2-C53E-46A6-A06C-D17F90A9C147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28326AC2-C53E-46A6-A06C-D17F90A9C147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28326AC2-C53E-46A6-A06C-D17F90A9C147}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

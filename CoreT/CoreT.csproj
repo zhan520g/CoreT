@@ -6,7 +6,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath></OutputPath>
-    <DocumentationFile>Y:\08.Visual Studio\2019\CoreT\CoreT\CoreT.xml</DocumentationFile>
+    <DocumentationFile>E:\05.Visual Studio\2019\CoreT\CoreT\CoreT.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 

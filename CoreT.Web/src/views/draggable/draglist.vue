@@ -3,12 +3,11 @@
        <p class="expain">本项目参考vueDraggable详细请参考<a href="https://github.com/SortableJS/Vue.Draggable" target="_blank">文档</a></p>
     <!-- 调用组件  -->
     <draggable element="ul" v-model="list" class="ul">
-      <li v-for="item in list">{{item.name}}</li>
+      <li v-for="(item,index) in list"  :key=index>{{item.name}}</li>
     </draggable>
     <pre>
          {{list}}
     </pre>
-   
   </div>
 </template>
 
