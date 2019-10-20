@@ -4,7 +4,7 @@
     <div class="login-form">
     <el-row :gutter="20">
       <el-col :lg="6" :sm="10" class="aa">
-          <h3>{{$t('login.system')}}</h3>
+          <h3>{{('login.system')}}</h3>
           <el-form
             :model="ruleForm2"
             status-icon
@@ -13,10 +13,10 @@
             label-width="100px"
             class="login-ruleForm"
           >
-            <el-form-item :label="$t('login.username')" prop="username">
+            <el-form-item :label="('login.username')" prop="username">
               <el-input v-model="ruleForm2.username"></el-input>
             </el-form-item>
-            <el-form-item :label="$t('login.password')" prop="password">
+            <el-form-item :label="('login.password')" prop="password">
               <el-input type="password" v-model="ruleForm2.password" autocomplete="off" show-password></el-input>
             </el-form-item>
             <el-form-item>

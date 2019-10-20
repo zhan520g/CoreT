@@ -156,6 +156,53 @@
                 }
               ]
             }
+            ,
+            {
+              icon: "el-icon-edit-outline",
+              index: "layout",
+              title: "布局管理",
+              subs: [
+                {
+                  index: "pageOne",
+                  title: "单一分栏"
+                },
+                 {
+                  index: "pageTwo",
+                  title: "单一分栏间隔"
+                }
+                ,
+                 {
+                  index: "pageThree",
+                  title: "分栏混合版"
+                }
+                ,
+                 {
+                  index: "pageFour",
+                  title: "分栏偏移"
+                }
+                ,
+                 {
+                  index: "pageFive",
+                  title: "对齐方式"
+                }
+                 ,
+                 {
+                  index: "pageSix",
+                  title: "响应式布局"
+                }
+              ]
+            }
+            ,{
+              icon:"el-icon-edit-outline",
+              index:"containerTest",
+              title:"容器管理",
+               subs:[
+                 {
+                  index: "containerOne",
+                  title: "常见页面布局"
+                 }
+               ]
+            }
           ]
         };
       },

@@ -3,13 +3,13 @@
   <div class="tags">
     <scroll-pane wrap-class="scrollbar-wrapper">
       <ul>
-        <li
+        <li 
           class="tags-li"
           v-for="(item,index) in tagsList"
           :key="index"
           :class="{'active': isActive(item.path)}"
         >
-          <router-link :to="item.path" class="tags-li-title">{{$t(item.title)}}</router-link>
+          <router-link :to="item.path" class="tags-li-title">{{(item.title)}}</router-link>
           <span class="tags-li-icon" @click="closeTags(index,item.path)">
             <i class="el-icon-close"></i>
           </span>
@@ -19,11 +19,11 @@
     <div class="tags-close-box">
       <el-dropdown @command="handleCommand">
         <el-button size="mini" type="primary">
-          {{$t('header.labelOptions')}}
+          标签选项
           <i class="el-icon-arrow-down el-icon--right"></i>
         </el-button>
         <el-dropdown-menu size="small" slot="dropdown">
-          <el-dropdown-item command="closeOther">{{$t('header.closeOthers')}}</el-dropdown-item>
+          <el-dropdown-item command="closeOther">关闭其他</el-dropdown-item>
           <!-- <el-dropdown-item command="all">关闭所有</el-dropdown-item> -->
         </el-dropdown-menu>
       </el-dropdown>

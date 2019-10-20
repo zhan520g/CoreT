@@ -32,6 +32,7 @@
                 <div class="icons icons1">
                   <i class="iconfont icon-xiaoxi"></i>
                 </div>
+                
               </div>
             </el-col>
             <el-col :span="12">

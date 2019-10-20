@@ -2,13 +2,13 @@
   <div class="head-container clearfix">
     <div class="header-left">
       <showAside :toggle-click="toggleClick"/>
-      <breadcrumb />
+      <!-- <breadcrumb /> -->
     </div>
     <div class="header-right">
       <div class="header-user-con">
         <!-- 全屏显示 -->
         <div class="btn-fullscreen" @click="handleFullScreen">
-          <el-tooltip effect="dark" :content="fullscreen?$t('header.cancelFullScreen'):$t('header.fullScreen')" placement="bottom">
+          <el-tooltip effect="dark" :content="fullscreen?'取消全屏':'全屏'" placement="bottom">
             <i class="el-icon-rank"></i>
           </el-tooltip>
         </div>
@@ -34,11 +34,11 @@
           </div>
           <el-dropdown-menu slot="dropdown" class="user-dropdown">
             <router-link class="inlineBlock" to="/home">
-              <el-dropdown-item>{{$t('route.home')}}</el-dropdown-item>
+              <el-dropdown-item>首页</el-dropdown-item>
             </router-link>
-            <el-dropdown-item>{{$t('header.setting')}}</el-dropdown-item>
+            <el-dropdown-item>个人设置</el-dropdown-item>
             <el-dropdown-item divided>
-              <span style="display:block;" @click="logout">{{$t('header.logout')}}</span>
+              <span style="display:block;" @click="logout">退出</span>
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>

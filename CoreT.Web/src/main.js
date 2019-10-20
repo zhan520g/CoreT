@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/router'
 import store from './store/store'
-import i18n from './lang'
+// import i18n from './lang'
 import './plugins/element.js'
 import './directive/premissionBtn'
 import './assets/css/public.css'   //全局样式
@@ -27,7 +27,7 @@ Vue.use(VueClipboard)
 Vue.prototype.$message = messages
 Vue.config.productionTip = false
 new Vue({
-  i18n,
+  // i18n,
   router,
   store,
   render: h => h(App)  //Vue的渲染逻辑——Render函数 , 渲染App这个元素

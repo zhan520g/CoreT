@@ -15,10 +15,7 @@ Vue.use(Router)
 
 const myRouter=new Router({
   routes: [
-    {
-      path:'/page1',
-      component:getComponentByName('page1')
-    },
+   
     {
       path: '/',
       redirect: '/home',
@@ -124,26 +121,77 @@ const myRouter=new Router({
         name:'user',
         meta:{title:'用户管理'}
       },
+
+      //表单测试
+      {
+        path:'/page1',
+        name:'form',
+        component:getComponentByName('page1'),
+        meta:{title:'表格树'}
+      },
+      //布局测试
+      {
+        path:'/pageOne',
+        name:'pageOne',
+        component:getComponent('layoutTest',"pageOne"),
+        meta:{title:'单一分栏'}
+      },
+      {
+        path:'/pageTwo',
+        name:'pageTwo',
+        component:getComponent('layoutTest',"pageTwo"),
+        meta:{title:'单一分栏分隔'}
+      },
+      {
+        path:'/pageThree',
+        name:'pageThree',
+        component:getComponent('layoutTest',"pageThree"),
+        meta:{title:'分栏混合版'}
+      },
+      {
+        path:'/pageFour',
+        name:'pageFour',
+        component:getComponent('layoutTest',"pageFour"),
+        meta:{title:'分栏偏移'}
+      },
+      {
+        path:'/pageFive',
+        name:'pageFive',
+        component:getComponent('layoutTest',"pageFive"),
+        meta:{title:'对齐方式'}
+      },
+      {
+        path:'/pageSix',
+        name:'pageSix',
+        component:getComponent('layoutTest',"pageSix"),
+        meta:{title:'响应式布局'}
+      },
+      {
+        path:'/containerOne',
+        name:'containerOne',
+        component:getComponent('containerTest',"containerOne"),
+        meta:{title:'布局容器'}
+      },
     ]
     }
   ]
 })
 
      //判断是否存在token,目前没有token,先禁掉
-     myRouter.beforeEach((to,from,next)=>{
-      NProgress.start();
-      if (to.path !== '/login' && store.state.token=='') {
-         NProgress.done(); // 结束Progress
-         next('/login');    //跳转登陆
-      } else {
-         NProgress.done(); // 结束Progress
-         next();
-      }
-      if (to.meta.roles) {
-          to.meta.roles.includes(...store.getters.roles) ? next() : next('/404')
-      } else {
-          next();
-      }
-    })
+    //  myRouter.beforeEach((to,from,next)=>{
+    //   NProgress.start();
+    //   if (to.path !== '/login' && store.state.token=='') {
+    //      NProgress.done(); // 结束Progress
+    //      next('/login');    //跳转登陆
+    //   } else {
+    //      NProgress.done(); // 结束Progress
+    //      next();
+    //   }
+    //   if (to.meta.roles) {
+    //       to.meta.roles.includes(...store.getters.roles) ? next() : next('/404')
+    //   } else {
+    //       next();
+    //   }
+    // })
     export default myRouter
 
