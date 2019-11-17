@@ -2,8 +2,10 @@
   <div class="head-container clearfix">
     <div class="header-left">
       <showAside :toggle-click="toggleClick"/>
+      
       <!-- <breadcrumb /> -->
     </div>
+    <!--<span class='title'>大蘑菇,欢迎你</span> -->
     <div class="header-right">
       <div class="header-user-con">
         <!-- 全屏显示 -->
@@ -194,6 +196,12 @@ export default {
 .el-dropdown-menu__item {
   text-align: center;
 }
+
+.title
+{
+  font-size: 35px;
+  color: hotpink;
+}
 .avatar-container {
   height: 50px;
   display: inline-block;
@@ -216,6 +224,7 @@ export default {
       font-size: 12px;
     }
   }
+
 }
 </style>
 

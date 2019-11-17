@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.18" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="auto.Entity\CoreT.Entity.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>CoreT.Entity.cs</LastGenOutput>
